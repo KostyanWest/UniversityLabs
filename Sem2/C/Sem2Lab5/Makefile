@@ -18,7 +18,7 @@ build: $(SOURCES) $(EXECUTABLE)
 $(EXECUTABLE): $(OBJECTS) 
 	$(CC) $(LDFLAGS) $(OBJECTS) -o $(EXECUTABLE)
 
-%.o: %.$(LANGPOSTFIX)#				# Устаревшая запись ".$(LANGPOSTFIX).o:"
+%.o: %.$(LANGPOSTFIX)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
