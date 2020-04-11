@@ -46,3 +46,13 @@ int Dequeue(Queue* pQueue)
 	}
 	return result;
 }
+
+void FreeQueue (Queue* pQueue)
+{
+	QueueElement* pElement = pQueue->pFirst;
+	while (pElement) {
+		QueueElement* pTemp = pElement->pNext;
+		free(pElement);
+		pElement = pTemp;
+	}
+}

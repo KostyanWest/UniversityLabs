@@ -16,8 +16,8 @@ typedef struct _Queue
 	QueueElement* pLast;
 } Queue;
 
-void Enqueue(Queue* pQueue, int element);
-
-int Dequeue(Queue* pQueue);
+void Enqueue (Queue* pQueue, int element);
+int Dequeue (Queue* pQueue);
+void FreeQueue (Queue* pQueue);
 
 #endif // !SEM2LAB5_QUEUE_H

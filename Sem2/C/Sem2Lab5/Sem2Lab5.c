@@ -64,7 +64,6 @@ void ReverseQueue(Queue* pCurQueue, void (*CurEnqueue) (Queue*, int), int (*CurD
 
 int main(void)
 {
-	char ch;
 	int count;
 	int* pArr;
 	Queue queue;
@@ -72,10 +71,10 @@ int main(void)
 	/* Enter size and numbers of queue */
 	printf("-> Enter positive size of queue:\n");
 	EnterPositiveNum(&count);
-	pArr = malloc(sizeof(int) * count);
+	pArr = malloc(count * sizeof(int));
 	if (!pArr) {
-		printf("Error: out of memory!");
-		ch = _getch();
+		printf("Error: out of memory!\n");
+		_getch();
 		return -1;
 	}
 	printf("-> Enter numbers of queue:\n");
@@ -84,16 +83,25 @@ int main(void)
 	/* Filling queue*/
 	queue.pFirst = NULL;
 	queue.pLast = NULL;
+	errno = 0;
 	for (int i = 0; i < count; i++) {
 		Enqueue(&queue, pArr[i]);
+		if (errno) {
+			FreeQueue(&queue);
+			free(pArr);
+			printf("Error: out of memory!\n");
+			_getch();
+			return -1;
+		}
 	}
 	free(pArr);
 
 	/* Reverse queue */
 	ReverseQueue(&queue, Enqueue, Dequeue);
 	if (errno) {
-		printf("Error: out of memory!");
-		ch = _getch();
+		FreeQueue(&queue);
+		printf("Error: out of memory!\n");
+		_getch();
 		return -1;
 	}
 
@@ -105,7 +113,8 @@ int main(void)
 	printf("\n");
 
 	/* Exit */
+	FreeQueue(&queue);
 	printf("-> Press any key to exit.\n");
-	ch = _getch();
+	_getch();
 	return 0;
 }
