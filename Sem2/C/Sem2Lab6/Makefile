@@ -11,7 +11,11 @@ EXECUTABLE=Sem2Lab6.exe
 all: build
 
 run: build
-	$(EXECUTABLE)
+ifeq ($(OS),Windows_NT)
+	.\$(EXECUTABLE)
+else
+	./$(EXECUTABLE)
+endif
 
 build: $(SOURCES) $(EXECUTABLE)
 	
