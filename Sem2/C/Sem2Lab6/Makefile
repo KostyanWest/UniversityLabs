@@ -4,7 +4,7 @@ LDFLAGS=
 SOURCES=Sem2Lab6.c Sem2Lab6_EPN.c Sem2Lab6_EMNIA.c Sem2Lab6_BinTree.c
 LANGPOSTFIX=c
 OBJECTS=$(SOURCES:.$(LANGPOSTFIX)=.o)
-EXECUTABLE=Sem2Lab6.exe
+EXECUTABLE=Sem2Lab6
 
 .PHONY: all run build clean
 
