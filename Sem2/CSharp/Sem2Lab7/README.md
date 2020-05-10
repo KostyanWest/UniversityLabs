@@ -6,7 +6,7 @@
 
 * В классе `RationalNumber` реализованы стандартные интерфейсы `IComparable` и `IConvertible`.
 
-... из [Lab 8](../Sem2Lab8)
----------------------------
+... из [Lab 8](../Sem2Lab1.3.4.5.6.8)
+-------------------------------------
 
 * В классе `Program` (`Sem2Lab7.cs`) отлавливается искоючение `OverflowException`, генерируемое классом `RationalNumber`.
