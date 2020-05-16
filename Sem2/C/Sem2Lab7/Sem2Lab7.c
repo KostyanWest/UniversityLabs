@@ -1,7 +1,7 @@
-/*
+п»ї/*
 Lang	C
-Sem		2
-Lab		7
+Sem	2
+Lab	7
 Task	6.2 (17)
 */
 
@@ -15,7 +15,7 @@ Task	6.2 (17)
 
 #include "Sem2Lab7_list.h"
 
-/* Показать результаты */
+/* РџРѕРєР°Р·Р°С‚СЊ СЂРµР·СѓР»СЊС‚Р°С‚С‹ */
 void ShowResults ()
 {
 	FILE* f;
@@ -24,14 +24,14 @@ void ShowResults ()
 
 	f = fopen("Results.txt", "rt");
 	if (f == NULL) {
-		printf("Ошибка: не удалось открыть файл \"Results.txt\"!\n");
+		printf("РћС€РёР±РєР°: РЅРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р» \"Results.txt\"!\n");
 		_getch();
 		return;
 	}
 	system("cls");
-	printf(" === Список участников ===\n");
+	printf(" === РЎРїРёСЃРѕРє СѓС‡Р°СЃС‚РЅРёРєРѕРІ ===\n");
 	while (1) {
-		/* Считываем строку */
+		/* РЎС‡РёС‚С‹РІР°РµРј СЃС‚СЂРѕРєСѓ */
 		for (int i = 0; ; i++) {
 			if (i >= 256 || fread(str + i, 1, 1, f) <= 0) {
 				fclose(f);
@@ -47,7 +47,7 @@ void ShowResults ()
 	}
 }
 
-/* Сохранить результат */
+/* РЎРѕС…СЂР°РЅРёС‚СЊ СЂРµР·СѓР»СЊС‚Р°С‚ */
 void SaveResult (const char* const name, const int score)
 {
 	FILE* f;
@@ -57,10 +57,10 @@ void SaveResult (const char* const name, const int score)
 	return;
 }
 
-/* Выбор строчки меню 
+/* Р’С‹Р±РѕСЂ СЃС‚СЂРѕС‡РєРё РјРµРЅСЋ 
 	return:
-	min - max - выбрана строчка меню
-	-1 - подтверждение выбора
+	min - max - РІС‹Р±СЂР°РЅР° СЃС‚СЂРѕС‡РєР° РјРµРЅСЋ
+	-1 - РїРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ РІС‹Р±РѕСЂР°
 	*/
 int SelectMenu (int min, int max, int current)
 {
@@ -72,29 +72,29 @@ int SelectMenu (int min, int max, int current)
 		switch (key) {
 		case 'w':
 		case 'W':
-		case 'ц':
-		case 'Ц':
+		case 'С†':
+		case 'Р¦':
 			return (current > min) ? current - 1 : max;
 		case 's':
 		case 'S':
-		case 'ы':
-		case 'Ы':
+		case 'С‹':
+		case 'Р«':
 			return (current < max) ? current + 1 : min;
 		case '\n':
 		case 'e':
 		case 'E':
-		case 'у':
-		case 'У':
+		case 'Сѓ':
+		case 'РЈ':
 			return -1;
 		}
 	}
 }
 
-/* Выбор случайных вопросов */
+/* Р’С‹Р±РѕСЂ СЃР»СѓС‡Р°Р№РЅС‹С… РІРѕРїСЂРѕСЃРѕРІ */
 void ChooseRandomTasks (int* const pTasksNums, const int count, const int maxCount)
 {
 	for (int i = 0; i < count; i++) {
-		/* Уникальные случайные числа */
+		/* РЈРЅРёРєР°Р»СЊРЅС‹Рµ СЃР»СѓС‡Р°Р№РЅС‹Рµ С‡РёСЃР»Р° */
 		int num = rand() % (maxCount - i);
 		for (int j = 0; j < i; j++) {
 			for (int k = 0; k < i; k++) {
@@ -108,11 +108,11 @@ void ChooseRandomTasks (int* const pTasksNums, const int count, const int maxCou
 	}
 }
 
-/* Выбор вопросов
+/* Р’С‹Р±РѕСЂ РІРѕРїСЂРѕСЃРѕРІ
 	return:
-	0 - всё хорошо
-	-1 - слишком мало вопросов
-	-3 - не достаточно памяти (malloc)
+	0 - РІСЃС‘ С…РѕСЂРѕС€Рѕ
+	-1 - СЃР»РёС€РєРѕРј РјР°Р»Рѕ РІРѕРїСЂРѕСЃРѕРІ
+	-3 - РЅРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїР°РјСЏС‚Рё (malloc)
 	*/
 int ChooseTasks (Task** const ppFirstTask, int** const ppTasksNums, const int count)
 {
@@ -133,12 +133,12 @@ int ChooseTasks (Task** const ppFirstTask, int** const ppTasksNums, const int co
 	}
 }
 
-/* Загрузка вопроса
+/* Р—Р°РіСЂСѓР·РєР° РІРѕРїСЂРѕСЃР°
 	return:
-	0 - всё хорошо
-	-1 - не удалось открыть файл
-	-2 - файл повреждён
-	-3 - не достаточно памяти (malloc)
+	0 - РІСЃС‘ С…РѕСЂРѕС€Рѕ
+	-1 - РЅРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р»
+	-2 - С„Р°Р№Р» РїРѕРІСЂРµР¶РґС‘РЅ
+	-3 - РЅРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїР°РјСЏС‚Рё (malloc)
 	*/
 int LoadTasks (Task** const ppFirstTask) {
 	FILE* f;
@@ -153,7 +153,7 @@ int LoadTasks (Task** const ppFirstTask) {
 	while (1) {
 		char str[1024];
 		str[1023] = '\0';
-		/* Считываем строку */
+		/* РЎС‡РёС‚С‹РІР°РµРј СЃС‚СЂРѕРєСѓ */
 		for (int i = 0; ; i++) {
 			if (i >= 1024 || fread(str + i, 1, 1, f) <= 0) {
 				fclose(f);
@@ -174,7 +174,7 @@ int LoadTasks (Task** const ppFirstTask) {
 				break;
 			}
 		}
-		/* Нашли вопрос */
+		/* РќР°С€Р»Рё РІРѕРїСЂРѕСЃ */
 		if (strcmp(str, "Q") == 0) {
 			if (pTempTask != NULL) {
 				pTempTask->answersCount = answersCount;
@@ -213,7 +213,7 @@ int LoadTasks (Task** const ppFirstTask) {
 			pTempTask->question = pTempQuestion;
 			continue;
 		}
-		/* Нашли правильный ответ */
+		/* РќР°С€Р»Рё РїСЂР°РІРёР»СЊРЅС‹Р№ РѕС‚РІРµС‚ */
 		if (strcmp(str, "RA") == 0) {
 			if (pTempTask == NULL) {
 				fclose(f);
@@ -223,13 +223,13 @@ int LoadTasks (Task** const ppFirstTask) {
 			str[0] = 'A';
 			str[1] = '\0';
 		}
-		/* Нашли ответ */
+		/* РќР°С€Р»Рё РѕС‚РІРµС‚ */
 		if (strcmp(str, "A") == 0) {
 			if (pTempTask == NULL || answersCount >= 5) {
 				fclose(f);
 				return -2;
 			}
-			/* Считываем строку */
+			/* РЎС‡РёС‚С‹РІР°РµРј СЃС‚СЂРѕРєСѓ */
 			for (int i = 0; ; i++) {
 				if (i >= 1024 || fread(str + i, 1, 1, f) <= 0) {
 					fclose(f);
@@ -253,7 +253,7 @@ int LoadTasks (Task** const ppFirstTask) {
 	}
 }
 
-/* Тестирование */
+/* РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ */
 void Testing (void)
 {
 	char name[64];
@@ -264,11 +264,11 @@ void Testing (void)
 	int nextSelect;
 	int score;
 
-	/* Ввод имени */
+	/* Р’РІРѕРґ РёРјРµРЅРё */
 	system("cls");
-	printf(" === Начало тестирования ===\n");
-	printf("Введите ваше имя: (50 символов)\n");
-	/* Считываем строку */
+	printf(" === РќР°С‡Р°Р»Рѕ С‚РµСЃС‚РёСЂРѕРІР°РЅРёСЏ ===\n");
+	printf("Р’РІРµРґРёС‚Рµ РІР°С€Рµ РёРјСЏ: (50 СЃРёРјРІРѕР»РѕРІ)\n");
+	/* РЎС‡РёС‚С‹РІР°РµРј СЃС‚СЂРѕРєСѓ */
 	for (int i = 0; ; i++) {
 		if (i >= 64) {
 			name[63] = '\0';
@@ -282,17 +282,17 @@ void Testing (void)
 	}
 
 
-	/* Выбор вопросов */
+	/* Р’С‹Р±РѕСЂ РІРѕРїСЂРѕСЃРѕРІ */
 	select = LoadTasks(&pFirstTask);
 	if (select < 0) {
 		system("cls");
-		printf("Ошибка: ");
+		printf("РћС€РёР±РєР°: ");
 		if (select == -1) {
-			printf("не удалось открыть файл \"Tasks.txt\"!\n");
+			printf("РЅРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р» \"Tasks.txt\"!\n");
 		} else if (select == -2) {
-			printf("файл \"Tasks.txt\" повреждён!\n");
+			printf("С„Р°Р№Р» \"Tasks.txt\" РїРѕРІСЂРµР¶РґС‘РЅ!\n");
 		} else if (select == -3) {
-			printf("недостаточно памяти!\n");
+			printf("РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїР°РјСЏС‚Рё!\n");
 		}
 		FreeTasks(&pFirstTask);
 		_getch();
@@ -302,18 +302,18 @@ void Testing (void)
 	select = ChooseTasks(&pFirstTask, &pTasksNums, tasksCount);
 	if (select < 0) {
 		system("cls");
-		printf("Ошибка: ");
+		printf("РћС€РёР±РєР°: ");
 		if (select == -1) {
-			printf("слишком мало вопросов!\n");
+			printf("СЃР»РёС€РєРѕРј РјР°Р»Рѕ РІРѕРїСЂРѕСЃРѕРІ!\n");
 		} else if (select == -3) {
-			printf("недостаточно памяти!\n");
+			printf("РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїР°РјСЏС‚Рё!\n");
 		}
 		FreeTasks(&pFirstTask);
 		_getch();
 		return;
 	}
 
-	/* Ответы на вопросы */
+	/* РћС‚РІРµС‚С‹ РЅР° РІРѕРїСЂРѕСЃС‹ */
 	score = 0;
 	for (int i = 0; i < tasksCount; i++) {
 		Task* pTemp = GotoTask(pFirstTask, pTasksNums[i]);
@@ -321,7 +321,7 @@ void Testing (void)
 
 		while (1) {
 			system("cls");
-			printf(" === Вопрос %d ===\n", i + 1);
+			printf(" === Р’РѕРїСЂРѕСЃ %d ===\n", i + 1);
 			puts(pTemp->question);
 			printf(" ------------------------------\n\n");
 			for (int j = 0; j < pTemp->answersCount; j++) {
@@ -344,16 +344,16 @@ void Testing (void)
 	FreeTasks(&pFirstTask);
 	free(pTasksNums);
 
-	/* Результаты */
+	/* Р РµР·СѓР»СЊС‚Р°С‚С‹ */
 	system("cls");
-	printf(" === Результаты ===\n");
+	printf(" === Р РµР·СѓР»СЊС‚Р°С‚С‹ ===\n");
 	printf("%s\n", name);
-	printf("Правильных ответов %d из %d\n", score, tasksCount);
+	printf("РџСЂР°РІРёР»СЊРЅС‹С… РѕС‚РІРµС‚РѕРІ %d РёР· %d\n", score, tasksCount);
 	SaveResult(name, score);
 	_getch();
 }
 
-/* Главное меню */
+/* Р“Р»Р°РІРЅРѕРµ РјРµРЅСЋ */
 void MainMenu (void)
 {
 	int select = 0;
@@ -361,16 +361,16 @@ void MainMenu (void)
 
 	while (1) {
 		system("cls");
-		printf(" === Система тестирования по языку Си ===\n");
+		printf(" === РЎРёСЃС‚РµРјР° С‚РµСЃС‚РёСЂРѕРІР°РЅРёСЏ РїРѕ СЏР·С‹РєСѓ РЎРё ===\n");
 		if (select == 0)
 			printf(" >>");
-		printf("\t1. Начать тест\n");
+		printf("\t1. РќР°С‡Р°С‚СЊ С‚РµСЃС‚\n");
 		if (select == 1)
 			printf(" >>");
-		printf("\t2. Список участников\n");
+		printf("\t2. РЎРїРёСЃРѕРє СѓС‡Р°СЃС‚РЅРёРєРѕРІ\n");
 		if (select == 2)
 			printf(" >>");
-		printf("\t3. Выход\n");
+		printf("\t3. Р’С‹С…РѕРґ\n");
 		nextSelect = SelectMenu(0, 2, select);
 		if (nextSelect == -1) {
 			switch (select) {
