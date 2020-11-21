@@ -1,0 +1,31 @@
+// Настройки для DirectoryFileExtractor
+{
+	"sourceDirectory" : { "path" : "D:\\in" },
+	"targetDirectory" : { "path" : "D:\\out" },
+	"searchExtension" : ".txt",
+	"compressorSettings" :
+	{
+		// удалите комментарий ниже, чтобы не использовать пользовательские настройки архивации
+		/*
+		"compressionLevel" : "Optimal",
+		"fileExtension" : ".zip",
+		*/
+	},
+	"cryptorSettings" :
+	{
+		"cryptedName" : "tmp.bin",
+		"maxPathLength" : 260,
+		"streamSettings" :
+		{
+			"key" :
+			[
+				81, 99, 239, 239, 141, 195, 172, 104, 209, 33, 88, 219, 189, 87, 173, 122,
+				176, 200, 162, 224, 96, 162, 15, 61, 99, 69, 208, 211, 85, 35, 209, 206
+			],
+			"IV" :
+			[
+				196, 220, 130, 86, 174, 224, 70, 5, 129, 134, 233, 132, 29, 245, 24, 20,
+			]
+		}
+	},
+}

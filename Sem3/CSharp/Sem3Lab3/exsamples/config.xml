@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Настройки для DirectoryFileExtractor -->
+<settings>
+	<sourceDirectory path="D:\\in" />
+	<targetDirectory path="D:\\out" />
+	<searchExtension>.txt</searchExtension>
+	<compressorSettings
+		compressionLevel="Optimal"
+		fileExtension=".zip"
+	/>
+	<cryptorSettings cryptedName="tmp.bin" maxPathLength="260" >
+		<!-- Уберите комментарий снизу, чтобы использовать фиксированные ключи шифрования -->
+		<!--
+		<streamSettings>
+			<key	e='81'  e='99'  e='239' e='239' e='141' e='195' e='172' e='104'
+				e='209' e='33'  e='88'  e='219' e='189' e='87'  e='173' e='122'
+				e='176' e='200' e='162' e='224' e='96'  e='162' e='15'  e='61'
+				e='99'  e='69'  e='208' e='211' e='85'  e='35'  e='209' e='206'
+			/>
+			<IV>
+				<e>196</e> <e>220</e> <e>130</e> <e>86</e> <e>174</e> <e>224</e> <e>70</e> <e>5</e>
+				<e>129</e> <e>134</e> <e>233</e> <e>132</e> <e>29</e> <e>245</e> <e>24</e> <e>20</e>
+			</IV>
+		</streamSettings>
+		-->
+	</cryptorSettings>
+</settinsg>

@@ -4,6 +4,10 @@ using System.Security.Cryptography;
 
 namespace Sem3Lab2
 {
+	/// <summary>
+	/// Улучшенный поток CryptoStream, который сам вызывает метод <see cref="IDisposable.Dispose()"/>
+	/// у <see cref="ICryptoTransform"/> после своего использования.
+	/// </summary>
 	public class OneoffCryptoStream : CryptoStream
 	{
 		private readonly IDisposable disposable;

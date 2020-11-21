@@ -1,62 +1,77 @@
 ﻿using System;
 using System.IO;
-using System.IO.Compression;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
 using System.ServiceProcess;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using Sem3Lab3;
 
 namespace Sem3Lab2
 {
 	public partial class Service1 : ServiceBase
 	{
+		private string logPath;
+		private DirectoryFileExtractor extractor;
+
 		public Service1 ()
 		{
 			InitializeComponent ();
 		}
 
+		public void Start () => OnStart (null);
+		public new void Stop () => OnPause ();
+
 		protected override void OnStart (string[] args)
 		{
-			Program.extractor = new DirectoryFileExtractor
+			logPath = Path.Combine (AppDomain.CurrentDomain.BaseDirectory, "log.txt");
+			extractor = new DirectoryFileExtractor
 			(
-				new DirectoryFileExtractorSettings
+				ConfigReader.GetOptions<DirectoryFileExtractorSettings>
 				(
-					new DirectoryInfo ("D:\\in"),
-					new DirectoryInfo ("D:\\out"),
-					".txt",
-					new GZipFileSettings (CompressionLevel.Optimal, ".zip"),
-					new AesFileSettings
-					(
-						"tmp.bin",
-						260,
-						new StreamAesCryptorSettings (Program.k, Program.v)
-					)
+					AppDomain.CurrentDomain.BaseDirectory, "config*", ConfigLog
 				),
-				Program.ExtractorLog
+				ExtractorLog
 			);
-			Program.extractor.StartContinue ();
+			extractor.StartContinue ();
 		}
 
 		protected override void OnContinue ()
 		{
 			base.OnContinue ();
-			Program.extractor.StartContinue ();
+			extractor.StartContinue ();
 		}
 
 		protected override void OnPause ()
 		{
 			base.OnPause ();
-			Program.extractor.Pause ();
+			extractor.Pause ();
 		}
 
 		protected override void OnStop ()
 		{
-			Program.extractor.Stop ();
+			extractor.Stop ();
+		}
+
+		private void ExtractorLog (string s)
+		{
+			try
+			{
+				using (StreamWriter writer = new StreamWriter (logPath, true, Encoding.UTF8))
+				{
+					writer.WriteLine ($"{DateTime.Now}\nExtractor:\n{s}\n");
+				}
+			}
+			catch { }
+		}
+
+		private void ConfigLog (string s)
+		{
+			try
+			{
+				using (StreamWriter writer = new StreamWriter (logPath, true, Encoding.UTF8))
+				{
+					writer.WriteLine ($"{DateTime.Now}\nConfigReader:\n{s}\n");
+				}
+			}
+			catch { }
 		}
 	}
 }

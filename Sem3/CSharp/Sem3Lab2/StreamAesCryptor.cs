@@ -8,6 +8,14 @@ namespace Sem3Lab2
 		public readonly byte[] key;
 		public readonly byte[] IV;
 
+		public StreamAesCryptorSettings ()
+		{
+			Aes aes = Aes.Create ();
+			key = aes.Key;
+			IV = aes.IV;
+			aes.Dispose ();
+		}
+
 		public StreamAesCryptorSettings (byte[] key, byte[] IV)
 		{
 			this.key = key;
@@ -15,6 +23,10 @@ namespace Sem3Lab2
 		}
 	}
 
+	/// <summary>
+	/// Класс, умеющий шифровать/дешифровать поток методом AES, используя хранящиеся в себе ключи шифрования.
+	/// Экземпляр класса сможет дешифровать любой зашифрованный им поток.
+	/// </summary>
 	public class StreamAesCryptor
 	{
 		private readonly byte[] key;

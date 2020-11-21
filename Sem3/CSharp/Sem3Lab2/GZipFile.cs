@@ -8,6 +8,24 @@ namespace Sem3Lab2
 		public readonly CompressionLevel compressionLevel;
 		public readonly string fileExtension;
 
+		public GZipFileSettings ()
+		{
+			compressionLevel = CompressionLevel.Optimal;
+			fileExtension = ".zip";
+		}
+
+		public GZipFileSettings (CompressionLevel compressionLevel)
+		{
+			this.compressionLevel = compressionLevel;
+			fileExtension = ".zip";
+		}
+
+		public GZipFileSettings (string fileExtension)
+		{
+			compressionLevel = CompressionLevel.Optimal;
+			this.fileExtension = fileExtension;
+		}
+
 		public GZipFileSettings (CompressionLevel compressionLevel, string fileExtension)
 		{
 			this.compressionLevel = compressionLevel;
@@ -15,6 +33,9 @@ namespace Sem3Lab2
 		}
 	}
 
+	/// <summary>
+	/// Класс предназначен для архивации/деархивации файлов.
+	/// </summary>
 	public class GZipFile
 	{
 		private readonly CompressionLevel compressionLevel;

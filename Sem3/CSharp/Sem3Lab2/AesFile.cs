@@ -7,16 +7,40 @@ namespace Sem3Lab2
 	{
 		public readonly string cryptedName;
 		public readonly int maxPathLength;
-		public readonly StreamAesCryptorSettings cryptorSettings;
+		public readonly StreamAesCryptorSettings streamSettings;
 
-		public AesFileSettings (string cryptedName, int maxPathLength, StreamAesCryptorSettings cryptorSettings)
+		public AesFileSettings ()
+		{
+			cryptedName = "tmp.bin";
+			maxPathLength = 260;
+			streamSettings = new StreamAesCryptorSettings ();
+		}
+
+		public AesFileSettings (string cryptedName)
+		{
+			this.cryptedName = cryptedName;
+			maxPathLength = 260;
+			streamSettings = new StreamAesCryptorSettings ();
+		}
+
+		public AesFileSettings (string cryptedName, int maxPathLength)
 		{
 			this.cryptedName = cryptedName;
 			this.maxPathLength = maxPathLength;
-			this.cryptorSettings = cryptorSettings;
+			streamSettings = new StreamAesCryptorSettings ();
+		}
+
+		public AesFileSettings (string cryptedName, int maxPathLength, StreamAesCryptorSettings streamSettings)
+		{
+			this.cryptedName = cryptedName;
+			this.maxPathLength = maxPathLength;
+			this.streamSettings = streamSettings;
 		}
 	}
 
+	/// <summary>
+	/// Класс предназначен для шифрования/дешифрования файлов методом AES.
+	/// </summary>
 	public class AesFile
 	{
 		private readonly string cryptedName;
@@ -27,7 +51,7 @@ namespace Sem3Lab2
 		{
 			cryptedName = settings.cryptedName;
 			maxPathLength = settings.maxPathLength;
-			cryptor = new StreamAesCryptor (settings.cryptorSettings);
+			cryptor = new StreamAesCryptor (settings.streamSettings);
 		}
 
 		public FileInfo Encrypt (FileInfo file)

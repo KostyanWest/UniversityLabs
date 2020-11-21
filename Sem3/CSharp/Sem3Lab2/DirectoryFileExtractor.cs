@@ -17,6 +17,35 @@ namespace Sem3Lab2
 		(
 			DirectoryInfo sourceDirectory,
 			DirectoryInfo targetDirectory,
+			string searchExtension
+		)
+		{
+			this.sourceDirectory = sourceDirectory;
+			this.targetDirectory = targetDirectory;
+			this.searchExtension = searchExtension;
+			compressorSettings = new GZipFileSettings ();
+			cryptorSettings = new AesFileSettings ();
+		}
+
+		public DirectoryFileExtractorSettings
+		(
+			DirectoryInfo sourceDirectory,
+			DirectoryInfo targetDirectory,
+			string searchExtension,
+			GZipFileSettings compressorSettings
+		)
+		{
+			this.sourceDirectory = sourceDirectory;
+			this.targetDirectory = targetDirectory;
+			this.searchExtension = searchExtension;
+			this.compressorSettings = compressorSettings;
+			cryptorSettings = new AesFileSettings ();
+		}
+
+		public DirectoryFileExtractorSettings
+		(
+			DirectoryInfo sourceDirectory,
+			DirectoryInfo targetDirectory,
 			string searchExtension,
 			GZipFileSettings compressorSettings,
 			AesFileSettings cryptorSettings
@@ -30,6 +59,11 @@ namespace Sem3Lab2
 		}
 	}
 
+	/// <summary>
+	/// Экземпляр класса мониторит каталог <c>sourceDirectory</c> на наличие файлов с расширением
+	/// <c>searchExtension</c>. При появлении такого файла, архивирует, шифрует, переносит
+	/// в каталог <c>targetDirectory</c>, дешифрует, разархивирует и поместит в подпапку "archive".
+	/// </summary>
 	public class DirectoryFileExtractor
 	{
 		private FileSystemWatcher watcher;
@@ -47,11 +81,29 @@ namespace Sem3Lab2
 		public DirectoryInfo TargetDirectory { get; private set; }
 		public string SearchExtension { get; private set; }
 
+		/// <summary>
+		/// Создаёт экземпляр класса. Для начала работы нужно вызвать метод <see cref="StartContinue()"/>.
+		/// </summary>
+		/// <param name="settings">Параметры для создания.</param>
+		/// <param name="log">
+		/// Метод, предназначеный для ведения лога. Оставьте <c>null</c>, чтобы не вести лог.
+		/// </param>
 		public DirectoryFileExtractor (DirectoryFileExtractorSettings settings, Action<string> log)
 		{
 			Setup (settings, log);
 		}
 
+		/// <summary>
+		/// Настройка экземпляра класса.
+		/// </summary>
+		/// <remarks>
+		/// Вызов этого метода пока <see cref="IsRunning"/> или <see cref="IsBusy"/>
+		/// равны true приведёт к генерации исключения
+		/// </remarks>
+		/// <param name="settings">Параметры для создания.</param>
+		/// <param name="log">
+		/// Метод, предназначеный для ведения лога. Оставьте <c>null</c>, чтобы не вести лог.
+		/// </param>
 		public void Setup (DirectoryFileExtractorSettings settings, Action<string> log)
 		{
 			if (!IsRunning && !IsBusy)
@@ -82,6 +134,9 @@ namespace Sem3Lab2
 			}
 		}
 
+		/// <summary>
+		/// Начинает/продолжает работу. Мониторинг происходит в другом потоке.
+		/// </summary>
 		public void StartContinue ()
 		{
 			if (!IsRunning && !IsBusy)
@@ -95,6 +150,9 @@ namespace Sem3Lab2
 			}
 		}
 
+		/// <summary>
+		/// Приостанавливает работу. Все файлы, которые находятся в очереди будут перенесены.
+		/// </summary>
 		public void Pause ()
 		{
 			if (IsRunning)
@@ -106,6 +164,10 @@ namespace Sem3Lab2
 			}
 		}
 
+		/// <summary>
+		/// Принудительно прекращает работу. Все файлы в очереди не будут перенесены,
+		/// перенос текущего файла будет прерван, временные файлы будут удалены.
+		/// </summary>
 		public void Stop ()
 		{
 			Pause ();
