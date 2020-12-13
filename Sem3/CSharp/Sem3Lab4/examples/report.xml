@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Data>
+	<Products>
+		<Product>
+			<ProductId>999</ProductId>
+			<Name>Road-750 Black, 52</Name>
+			<ProductNumber>BK-R19B-52</ProductNumber>
+			<Color>Black</Color>
+			<StandardCost>343,6496</StandardCost>
+			<ListPrice>539,9900</ListPrice>
+			<Size>52</Size>
+			<Weight>9262,31</Weight>
+			<ProductCategoryId>6</ProductCategoryId>
+			<ProductModelId>31</ProductModelId>
+			<SellStartDate>01.07.2007 0:00:00</SellStartDate>
+			<SellEndDate>null</SellEndDate>
+			<DiscontinuedDate>null</DiscontinuedDate>
+			<ThumbNailPhoto>System.Byte[]</ThumbNailPhoto>
+			<ThumbNailPhotoFileName>roadster_black_small.gif</ThumbNailPhotoFileName>
+			<Rowguid>ae638923-2b67-4679-b90e-abbab17dca31</Rowguid>
+			<ModifiedDate>11.03.2008 10:01:36</ModifiedDate>
+		</Product>
+		<Product>
+			<ProductId>997</ProductId>
+			<Name>Road-750 Black, 44</Name>
+			<ProductNumber>BK-R19B-44</ProductNumber>
+			<Color>Black</Color>
+			<StandardCost>343,6496</StandardCost>
+			<ListPrice>539,9900</ListPrice>
+			<Size>44</Size>
+			<Weight>8967,47</Weight>
+			<ProductCategoryId>6</ProductCategoryId>
+			<ProductModelId>31</ProductModelId>
+			<SellStartDate>01.07.2007 0:00:00</SellStartDate>
+			<SellEndDate>null</SellEndDate>
+			<DiscontinuedDate>null</DiscontinuedDate>
+			<ThumbNailPhoto>System.Byte[]</ThumbNailPhoto>
+			<ThumbNailPhotoFileName>roadster_black_small.gif</ThumbNailPhotoFileName>
+			<Rowguid>44ce4802-409f-43ab-9b27-ca53421805be</Rowguid>
+			<ModifiedDate>11.03.2008 10:01:36</ModifiedDate>
+		</Product>
+		<Product>
+			<ProductId>998</ProductId>
+			<Name>Road-750 Black, 48</Name>
+			<ProductNumber>BK-R19B-48</ProductNumber>
+			<Color>Black</Color>
+			<StandardCost>343,6496</StandardCost>
+			<ListPrice>539,9900</ListPrice>
+			<Size>48</Size>
+			<Weight>9130,77</Weight>
+			<ProductCategoryId>6</ProductCategoryId>
+			<ProductModelId>31</ProductModelId>
+			<SellStartDate>01.07.2007 0:00:00</SellStartDate>
+			<SellEndDate>null</SellEndDate>
+			<DiscontinuedDate>null</DiscontinuedDate>
+			<ThumbNailPhoto>System.Byte[]</ThumbNailPhoto>
+			<ThumbNailPhotoFileName>roadster_black_small.gif</ThumbNailPhotoFileName>
+			<Rowguid>3de9a212-1d49-40b6-b10a-f564d981dbde</Rowguid>
+			<ModifiedDate>11.03.2008 10:01:36</ModifiedDate>
+		</Product>
+	</Products>
+	<ProductCategories>
+		<ProductCategory>
+			<ProductCategoryId>1</ProductCategoryId>
+			<ParentProductCategoryId>null</ParentProductCategoryId>
+			<Name>Bikes</Name>
+			<Rowguid>cfbda25c-df71-47a7-b81b-64ee161aa37c</Rowguid>
+			<ModifiedDate>01.06.2002 0:00:00</ModifiedDate>
+		</ProductCategory>
+		<ProductCategory>
+			<ProductCategoryId>2</ProductCategoryId>
+			<ParentProductCategoryId>null</ParentProductCategoryId>
+			<Name>Components</Name>
+			<Rowguid>c657828d-d808-4aba-91a3-af2ce02300e9</Rowguid>
+			<ModifiedDate>01.06.2002 0:00:00</ModifiedDate>
+		</ProductCategory>
+		<ProductCategory>
+			<ProductCategoryId>3</ProductCategoryId>
+			<ParentProductCategoryId>null</ParentProductCategoryId>
+			<Name>Clothing</Name>
+			<Rowguid>10a7c342-ca82-48d4-8a38-46a2eb089b74</Rowguid>
+			<ModifiedDate>01.06.2002 0:00:00</ModifiedDate>
+		</ProductCategory>
+	</ProductCategories>
+	<ProductModels>
+		<ProductModel>
+			<ProductModelId>1</ProductModelId>
+			<Name>Classic Vest</Name>
+			<CatalogDescription>null</CatalogDescription>
+			<Rowguid>29321d47-1e4c-4aac-887c-19634328c25e</Rowguid>
+			<ModifiedDate>01.06.2007 0:00:00</ModifiedDate>
+		</ProductModel>
+		<ProductModel>
+			<ProductModelId>2</ProductModelId>
+			<Name>Cycling Cap</Name>
+			<CatalogDescription>null</CatalogDescription>
+			<Rowguid>474fb654-3c96-4cb9-82df-2152eeffbdb0</Rowguid>
+			<ModifiedDate>01.06.2005 0:00:00</ModifiedDate>
+		</ProductModel>
+		<ProductModel>
+			<ProductModelId>3</ProductModelId>
+			<Name>Full-Finger Gloves</Name>
+			<CatalogDescription>null</CatalogDescription>
+			<Rowguid>a75483fe-3c47-4aa4-93cf-664b51192987</Rowguid>
+			<ModifiedDate>01.06.2006 0:00:00</ModifiedDate>
+		</ProductModel>
+	</ProductModels>
+	<ProductModelProductDescriptions>
+		<ProductModelProductDescription>
+			<ProductModelId>1</ProductModelId>
+			<ProductDescriptionId>1199</ProductDescriptionId>
+			<Culture>en    </Culture>
+			<Rowguid>4d00b649-027a-4f99-a380-f22a46ec8638</Rowguid>
+			<ModifiedDate>01.06.2007 0:00:00</ModifiedDate>
+		</ProductModelProductDescription>
+		<ProductModelProductDescription>
+			<ProductModelId>1</ProductModelId>
+			<ProductDescriptionId>1467</ProductDescriptionId>
+			<Culture>ar    </Culture>
+			<Rowguid>7de7204e-4efc-40f7-b9e6-0ceb4162399c</Rowguid>
+			<ModifiedDate>01.06.2007 0:00:00</ModifiedDate>
+		</ProductModelProductDescription>
+		<ProductModelProductDescription>
+			<ProductModelId>1</ProductModelId>
+			<ProductDescriptionId>1589</ProductDescriptionId>
+			<Culture>fr    </Culture>
+			<Rowguid>20bffcf4-bfa6-400b-bf34-9a689779eae4</Rowguid>
+			<ModifiedDate>01.06.2007 0:00:00</ModifiedDate>
+		</ProductModelProductDescription>
+	</ProductModelProductDescriptions>
+	<ProductDescriptions>
+		<ProductDescription>
+			<ProductDescriptionId>3</ProductDescriptionId>
+			<Description>Chromoly steel.</Description>
+			<Rowguid>301eed3a-1a82-4855-99cb-2afe8290d641</Rowguid>
+			<ModifiedDate>01.06.2007 0:00:00</ModifiedDate>
+		</ProductDescription>
+		<ProductDescription>
+			<ProductDescriptionId>4</ProductDescriptionId>
+			<Description>Aluminum alloy cups; large diameter spindle.</Description>
+			<Rowguid>dfeba528-da11-4650-9d86-cafda7294eb0</Rowguid>
+			<ModifiedDate>01.06.2007 0:00:00</ModifiedDate>
+		</ProductDescription>
+		<ProductDescription>
+			<ProductDescriptionId>5</ProductDescriptionId>
+			<Description>Aluminum alloy cups and a hollow axle.</Description>
+			<Rowguid>f7178da7-1a7e-4997-8470-06737181305e</Rowguid>
+			<ModifiedDate>01.06.2007 0:00:00</ModifiedDate>
+		</ProductDescription>
+	</ProductDescriptions>
+</Data>

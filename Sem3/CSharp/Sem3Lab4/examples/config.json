@@ -1,0 +1,21 @@
+// Настройки для DataManager
+{
+	"xmlPath" : "report.xml",
+	"xsdPath" : "report.xsd",
+	"selectCount" : 3,
+	"accessorSettings" :
+	{
+		"connectionString" :
+			"Data Source=.\\SQLEXPRESS;Initial Catalog=AdventureWorksLT2019;Integrated Security=True"
+	},
+	"reporterSettings" :
+	{
+		"connectionString" :
+			"Data Source=.\\SQLEXPRESS;Initial Catalog=sem3lab4db;Integrated Security=True"
+	},
+	"xmlGeneratorSettings" :
+	{
+		"xmlHeader" : "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n",
+		"schemaLink" : "https://docs.microsoft.com/ru-ru/dotnet/csharp/language-reference/builtin-types/built-in-types"
+	}
+}

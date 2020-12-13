@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+xsd:schema xmlns:xsd="https://docs.microsoft.com/ru-ru/dotnet/csharp/language-reference/builtin-types/built-in-types">
+	<xsd:all name="Data">
+		<xsd:all name="Products">
+			<xsd:all name="Product">
+				<xsd:element name="ProductId" type="xsd:System.Int32">
+				<xsd:element name="Name" type="xsd:System.String">
+				<xsd:element name="ProductNumber" type="xsd:System.String">
+				<xsd:element name="Color" type="xsd:System.String">
+				<xsd:element name="StandardCost" type="xsd:System.Decimal">
+				<xsd:element name="ListPrice" type="xsd:System.Decimal">
+				<xsd:element name="Size" type="xsd:System.String">
+				<xsd:element name="Weight" type="xsd:System.Nullable`1[System.Decimal]">
+				<xsd:element name="ProductCategoryId" type="xsd:System.Nullable`1[System.Int32]">
+				<xsd:element name="ProductModelId" type="xsd:System.Nullable`1[System.Int32]">
+				<xsd:element name="SellStartDate" type="xsd:System.DateTime">
+				<xsd:element name="SellEndDate" type="xsd:System.Nullable`1[System.DateTime]">
+				<xsd:element name="DiscontinuedDate" type="xsd:System.Nullable`1[System.DateTime]">
+				<xsd:element name="ThumbNailPhoto" type="xsd:System.Byte[]">
+				<xsd:element name="ThumbNailPhotoFileName" type="xsd:System.String">
+				<xsd:element name="Rowguid" type="xsd:System.Guid">
+				<xsd:element name="ModifiedDate" type="xsd:System.DateTime">
+			</xsd:all>
+		</xsd:all>
+		<xsd:all name="ProductCategories">
+			<xsd:all name="ProductCategory">
+				<xsd:element name="ProductCategoryId" type="xsd:System.Int32">
+				<xsd:element name="ParentProductCategoryId" type="xsd:System.Nullable`1[System.Int32]">
+				<xsd:element name="Name" type="xsd:System.String">
+				<xsd:element name="Rowguid" type="xsd:System.Guid">
+				<xsd:element name="ModifiedDate" type="xsd:System.DateTime">
+			</xsd:all>
+		</xsd:all>
+		<xsd:all name="ProductModels">
+			<xsd:all name="ProductModel">
+				<xsd:element name="ProductModelId" type="xsd:System.Int32">
+				<xsd:element name="Name" type="xsd:System.String">
+				<xsd:element name="CatalogDescription" type="xsd:System.String">
+				<xsd:element name="Rowguid" type="xsd:System.Guid">
+				<xsd:element name="ModifiedDate" type="xsd:System.DateTime">
+			</xsd:all>
+		</xsd:all>
+		<xsd:all name="ProductModelProductDescriptions">
+			<xsd:all name="ProductModelProductDescription">
+				<xsd:element name="ProductModelId" type="xsd:System.Int32">
+				<xsd:element name="ProductDescriptionId" type="xsd:System.Int32">
+				<xsd:element name="Culture" type="xsd:System.String">
+				<xsd:element name="Rowguid" type="xsd:System.Guid">
+				<xsd:element name="ModifiedDate" type="xsd:System.DateTime">
+			</xsd:all>
+		</xsd:all>
+		<xsd:all name="ProductDescriptions">
+			<xsd:all name="ProductDescription">
+				<xsd:element name="ProductDescriptionId" type="xsd:System.Int32">
+				<xsd:element name="Description" type="xsd:System.String">
+				<xsd:element name="Rowguid" type="xsd:System.Guid">
+				<xsd:element name="ModifiedDate" type="xsd:System.DateTime">
+			</xsd:all>
+		</xsd:all>
+	</xsd:all>
+</xsd:schema>

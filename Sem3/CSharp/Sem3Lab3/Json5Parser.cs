@@ -245,10 +245,10 @@ namespace Sem3Lab3
 				char ch = text[index];
 				if (ch == '\"' || ch == '\'')
 				{
-					int end;
+					int end = index;
 					do
 					{
-						end = text.IndexOf (text[index], index + 1);
+						end = text.IndexOf (ch, end + 1);
 					}
 					while (IsEscape (text, end));
 					result = text.Substring (index + 1, end - index - 1);
