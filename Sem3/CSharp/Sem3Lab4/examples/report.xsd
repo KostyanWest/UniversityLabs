@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-xsd:schema xmlns:xsd="https://docs.microsoft.com/ru-ru/dotnet/csharp/language-reference/builtin-types/built-in-types">
+<xsd:schema xmlns:xsd="https://docs.microsoft.com/ru-ru/dotnet/csharp/language-reference/builtin-types/built-in-types">
 	<xsd:all name="Data">
 		<xsd:all name="Products">
 			<xsd:all name="Product">

@@ -41,7 +41,7 @@ namespace Sem3Lab4.ServiceLayer
 			xsdText = new StringBuilder (xmlHeader);
 			xsdParents = new Stack<string> ();
 			xsdParents.Push ("");
-			xsdText.Append ($"xsd:schema xmlns:xsd=\"{schemaLink}\">\n");
+			xsdText.Append ($"<xsd:schema xmlns:xsd=\"{schemaLink}\">\n");
 			xsdParents.Push ("schema");
 			xsdParents.Push ("\t");
 			OpenElement (rootElement);
